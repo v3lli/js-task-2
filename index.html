@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <script>
+        data = [{principal: 2500, time : 1.8}, {principal: 1000, time : 1.5}, {principal: 3000, time : 1}, {principal: 2000, time : 3}];
+        function rateCalculator(input){
+            if(input.principal <= 2500){
+                if(input.time > 1 && input.time < 3 ) {
+                    return 3;
+                }
+                else if(input.time >= 3){
+                    return 4;
+                }
+            }                
+            else if (input.principal <= 2500 || input.time < 1){
+                return 2;
+            }
+            else{
+                return 1;
+            }
+        }
+        function interest(operand,rate){
+                let y = (operand.principal * rate * operand.time)/100;
+                return y;
+        }       
+        function interestCalculator(array1){
+            let interestData = [];
+            for(let i = 0; i<array1.length ; i++){
+                let r = rateCalculator(array1[i]);
+                let x = interest(array1[i], r);
+                // console.log("The Interest on $"+array1[i].principal+" for "+array1[i].time+" years "+ " is.. $"+ x);
+                interestData.push({principal:array1[i].principal, time:array1[i].time, rate:r, interest:x})
+            }
+            console.log("The interestData array has been created to spec.");
+            console.log("Expand the line directly below this console log if you think i'm lying");
+            console.log(interestData);
+            return interestData;
+        }
+        let solved =  interestCalculator(data);
+        console.log("thank you for banking with us");
+    </script>
+</body>
+</html>
