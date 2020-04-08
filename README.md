@@ -1,4 +1,4 @@
-# mongodb-basics
+# js-basics
 
 screenshots
 #fig. output
